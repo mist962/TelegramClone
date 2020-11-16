@@ -6,7 +6,6 @@ import com.sideki.telegramclonemvvm.databinding.FragmentChatsBinding
 
 class ChatsFragment : Fragment(R.layout.fragment_chats) {
 
-    private lateinit var binding: FragmentChatsBinding
 
     override fun onStart() {
         super.onStart()

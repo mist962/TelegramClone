@@ -5,14 +5,16 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
-import androidx.navigation.ui.setupActionBarWithNavController
 import com.sideki.telegramclonemvvm.ui.objects.AppDrawer
+import com.sideki.telegramclonemvvm.utilites.AUTH
+import com.sideki.telegramclonemvvm.utilites.initFirebase
+import com.sideki.telegramclonemvvm.utilites.replaceActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var navController: NavController
-    private lateinit var mAppDrawer: AppDrawer
+    lateinit var mAppDrawer: AppDrawer
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,17 +30,21 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initFields() {
-        navController = findNavController(R.id.fragment)
-        setupActionBarWithNavController(navController)
+        navController = findNavController(R.id.main_container_fragment)
+        //setupActionBarWithNavController(navController)
         mAppDrawer = AppDrawer(this, mainToolbar, navController)
+        initFirebase()
     }
 
     private fun initFunc() {
-        mAppDrawer.create()
+        if (AUTH.currentUser != null) {
+            mAppDrawer.create()
+        } else {
+            replaceActivity(RegisterActivity())
+        }
     }
 
     override fun navigateUpTo(upIntent: Intent?): Boolean {
         return navController.navigateUp() || super.onSupportNavigateUp()
     }
-
 }

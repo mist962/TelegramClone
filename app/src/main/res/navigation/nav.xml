@@ -19,5 +19,9 @@
         android:id="@+id/settingsFragment"
         android:name="com.sideki.telegramclonemvvm.ui.fragments.SettingsFragment"
         android:label="Настройки"
-        tools:layout="@layout/fragment_settings"/>
+        tools:layout="@layout/fragment_settings">
+        <action
+            android:id="@+id/action_settingsFragment_to_chatsFragment"
+            app:destination="@id/chatsFragment" />
+    </fragment>
 </navigation>
