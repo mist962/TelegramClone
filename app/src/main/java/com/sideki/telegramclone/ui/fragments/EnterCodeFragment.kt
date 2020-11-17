@@ -1,13 +1,13 @@
-package com.sideki.telegramclonemvvm.ui.fragments
+package com.sideki.telegramclone.ui.fragments
 
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.PhoneAuthProvider
-import com.sideki.telegramclonemvvm.MainActivity
-import com.sideki.telegramclonemvvm.R
-import com.sideki.telegramclonemvvm.RegisterActivity
-import com.sideki.telegramclonemvvm.utilites.*
+import com.sideki.telegramclone.MainActivity
+import com.sideki.telegramclone.R
+import com.sideki.telegramclone.RegisterActivity
+import com.sideki.telegramclone.utilites.*
 import kotlinx.android.synthetic.main.fragment_enter_code.*
 
 class EnterCodeFragment : Fragment(R.layout.fragment_enter_code) {

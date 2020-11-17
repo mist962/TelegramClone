@@ -1,12 +1,12 @@
-package com.sideki.telegramclonemvvm
+package com.sideki.telegramclone
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupActionBarWithNavController
-import com.sideki.telegramclonemvvm.databinding.ActivityRegisterBinding
-import com.sideki.telegramclonemvvm.utilites.initFirebase
+import com.sideki.telegramclone.databinding.ActivityRegisterBinding
+import com.sideki.telegramclone.utilites.initFirebase
 import kotlinx.android.synthetic.main.activity_register.*
 
 class RegisterActivity : AppCompatActivity() {

@@ -1,8 +1,7 @@
-package com.sideki.telegramclonemvvm.ui.fragments
+package com.sideki.telegramclone.ui.fragments
 
 import androidx.fragment.app.Fragment
-import com.sideki.telegramclonemvvm.R
-import com.sideki.telegramclonemvvm.databinding.FragmentChatsBinding
+import com.sideki.telegramclone.R
 
 class ChatsFragment : Fragment(R.layout.fragment_chats) {
 

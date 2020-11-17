@@ -1,4 +1,4 @@
-package com.sideki.telegramclonemvvm.ui.objects
+package com.sideki.telegramclone.ui.objects
 
 
 import android.view.View
@@ -14,8 +14,8 @@ import com.mikepenz.materialdrawer.model.DividerDrawerItem
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem
 import com.mikepenz.materialdrawer.model.ProfileDrawerItem
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem
-import com.sideki.telegramclonemvvm.MainActivity
-import com.sideki.telegramclonemvvm.R
+import com.sideki.telegramclone.MainActivity
+import com.sideki.telegramclone.R
 import kotlinx.android.synthetic.main.activity_main.*
 
 class AppDrawer(
@@ -38,7 +38,8 @@ class AppDrawer(
         activity.supportActionBar?.setDisplayHomeAsUpEnabled(true)
         mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
         (activity as MainActivity).mainToolbar.setNavigationOnClickListener {
-            navController.navigate(R.id.action_settingsFragment_to_chatsFragment)
+            enableDrawer()
+            navController.navigateUp()
         }
     }
 

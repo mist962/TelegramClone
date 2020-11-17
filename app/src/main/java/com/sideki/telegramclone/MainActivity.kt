@@ -1,25 +1,25 @@
-package com.sideki.telegramclonemvvm
+package com.sideki.telegramclone
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
-import com.sideki.telegramclonemvvm.ui.objects.AppDrawer
-import com.sideki.telegramclonemvvm.utilites.AUTH
-import com.sideki.telegramclonemvvm.utilites.initFirebase
-import com.sideki.telegramclonemvvm.utilites.replaceActivity
+import com.sideki.telegramclone.models.User
+import com.sideki.telegramclone.ui.objects.AppDrawer
+import com.sideki.telegramclone.utilites.*
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var navController: NavController
+    lateinit var navController: NavController
     lateinit var mAppDrawer: AppDrawer
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(mainToolbar)
+        initFirebase()
 
     }
 
@@ -33,7 +33,14 @@ class MainActivity : AppCompatActivity() {
         navController = findNavController(R.id.main_container_fragment)
         //setupActionBarWithNavController(navController)
         mAppDrawer = AppDrawer(this, mainToolbar, navController)
-        initFirebase()
+        initUser()
+    }
+
+    private fun initUser() {
+        REF_DATABASE_ROOT.child(NODE_USERS).child(UID)
+            .addListenerForSingleValueEvent(AppValuewEventListener {
+                USER = it.getValue(User::class.java) ?: User()
+            })
     }
 
     private fun initFunc() {

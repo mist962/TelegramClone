@@ -1,4 +1,4 @@
-package com.sideki.telegramclonemvvm
+package com.sideki.telegramclone
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

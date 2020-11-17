@@ -1,4 +1,4 @@
-package com.sideki.telegramclonemvvm
+package com.sideki.telegramclone
 
 import org.junit.Test
 

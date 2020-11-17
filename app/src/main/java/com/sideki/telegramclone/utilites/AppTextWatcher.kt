@@ -1,4 +1,4 @@
-package com.sideki.telegramclonemvvm.utilites
+package com.sideki.telegramclone.utilites
 
 import android.text.Editable
 import android.text.TextWatcher
