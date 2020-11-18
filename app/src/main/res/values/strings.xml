@@ -6,7 +6,7 @@
     <string name="settings_default_status">В сети</string>
     <string name="settings_text_account">Аккаунт</string>
     <string name="settings_default_number">+79781111111</string>
-    <string name="settings_label_phone_number">Нажмите чтобы изменить номер телефона</string>
+    <string name="settings_label_phone_number">Телефон</string>
     <string name="settings_default_login">Sideki</string>
     <string name="settings_label_login">Имя пользователя</string>
     <string name="settings_default_bio">О себе</string>

@@ -32,7 +32,7 @@ class ChangeUserNameFragment : BaseChangeFragment(R.layout.fragment_change_user_
     }
 
     private fun changeUsername() {
-        REF_DATABASE_ROOT.child(NODE_USERNAMES).child(mNewUserName).setValue(UID)
+        REF_DATABASE_ROOT.child(NODE_USERNAMES).child(mNewUserName).setValue(CURRENT_UID)
             .addOnCompleteListener {
                 if (it.isSuccessful) {
                     udateCurrentUsername()
@@ -41,7 +41,7 @@ class ChangeUserNameFragment : BaseChangeFragment(R.layout.fragment_change_user_
     }
 
     private fun udateCurrentUsername() {
-        REF_DATABASE_ROOT.child(NODE_USERS).child(UID).child(CHILD_USERNAME).setValue(mNewUserName)
+        REF_DATABASE_ROOT.child(NODE_USERS).child(CURRENT_UID).child(CHILD_USERNAME).setValue(mNewUserName)
             .addOnCompleteListener {
                 if (it.isSuccessful) {
                     showToast(getString(R.string.toast_data_update))
