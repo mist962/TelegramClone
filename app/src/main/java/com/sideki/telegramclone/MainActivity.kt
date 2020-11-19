@@ -1,8 +1,10 @@
 package com.sideki.telegramclone
 
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import com.sideki.telegramclone.ui.objects.AppDrawer
@@ -21,8 +23,15 @@ class MainActivity : AppCompatActivity() {
         APP_ACTIVITY = this
         initFirebase()
         initUser {
+            initContacts()
             initFields()
             initFunc()
+        }
+    }
+
+    private fun initContacts() {
+        if (checkPermission(READ_CONTACTS)){
+            showToast("Чтение контактов")
         }
     }
 
@@ -53,6 +62,17 @@ class MainActivity : AppCompatActivity() {
 
     override fun navigateUpTo(upIntent: Intent?): Boolean {
         return navController.navigateUp() || super.onSupportNavigateUp()
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (ContextCompat.checkSelfPermission(APP_ACTIVITY, READ_CONTACTS)==PackageManager.PERMISSION_GRANTED){
+            initContacts()
+        }
     }
 
 }
